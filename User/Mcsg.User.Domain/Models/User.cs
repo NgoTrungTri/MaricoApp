@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models;
@@ -34,11 +33,9 @@ public partial class User
     public string? UsDirector { get; set; }
 
     [StringLength(500)]
-    [Unicode(false)]
     public string? UsVp { get; set; }
 
     [StringLength(500)]
-    [Unicode(false)]
     public string? UsCoo { get; set; }
 
     public short? DmId { get; set; }
@@ -53,7 +50,6 @@ public partial class User
     public short? PosId { get; set; }
 
     [StringLength(100)]
-    [Unicode(false)]
     public string? UsSapCode { get; set; }
 
     public bool? UsAutoUpdate { get; set; }

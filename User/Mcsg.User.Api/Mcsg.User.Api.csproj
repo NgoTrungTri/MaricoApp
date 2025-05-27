@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mcsg.User.Application\Mcsg.User.Application.csproj" />
+    <ProjectReference Include="..\Mcsg.User.Infrastructure\Mcsg.User.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
