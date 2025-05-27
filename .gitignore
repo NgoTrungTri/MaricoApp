@@ -1,0 +1,37 @@
+# Build Folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.userprefs
+*.pidb
+*.svclog
+*.vsp
+.vs/
+
+# Rider IDE
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local DB files
+*.mdf
+*.ldf
+
+# Packages
+*.nupkg
+packages/
+
+# Secrets
+appsettings.Development.json
+
+# Others
+TestResults/
