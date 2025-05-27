@@ -5,13 +5,13 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User", "User", "{29505D04-73B3-40E2-96FD-735A08CB1854}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mcsg.User.Api", "User\Mcsg.User.Api\Mcsg.User.Api.csproj", "{B0F17FAC-9556-4C23-88E6-C3BDBAE30F78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mcsg.User.Api", "User\Mcsg.User.Api\Mcsg.User.Api.csproj", "{B0F17FAC-9556-4C23-88E6-C3BDBAE30F78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mcsg.User.Application", "User\Mcsg.User.Application\Mcsg.User.Application.csproj", "{25AA0744-DD29-43CB-A9D0-6880875117A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mcsg.User.Application", "User\Mcsg.User.Application\Mcsg.User.Application.csproj", "{25AA0744-DD29-43CB-A9D0-6880875117A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mcsg.User.Domain", "User\Mcsg.User.Domain\Mcsg.User.Domain.csproj", "{7A2A39E6-FE94-4EEE-8467-7ECC0164D24F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mcsg.User.Domain", "User\Mcsg.User.Domain\Mcsg.User.Domain.csproj", "{7A2A39E6-FE94-4EEE-8467-7ECC0164D24F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mcsg.User.Infrastructure", "User\Mcsg.User.Infrastructure\Mcsg.User.Infrastructure.csproj", "{82291BE9-01D7-4194-AA62-16657F848F2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mcsg.User.Infrastructure", "User\Mcsg.User.Infrastructure\Mcsg.User.Infrastructure.csproj", "{82291BE9-01D7-4194-AA62-16657F848F2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

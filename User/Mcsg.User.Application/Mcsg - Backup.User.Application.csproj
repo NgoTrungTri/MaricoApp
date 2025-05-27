@@ -7,21 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mcsg.User.Domain\Mcsg.User.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Queries\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.0.0" />
-    <PackageReference Include="MediatR" Version="12.5.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.5" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.11.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Mcsg.User.Domain\Mcsg.User.Domain.csproj" />
-    <ProjectReference Include="..\Mcsg.User.Infrastructure\Mcsg.User.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

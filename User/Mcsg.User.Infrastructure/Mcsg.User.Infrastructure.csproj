@@ -19,7 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mcsg.User.Application\Mcsg.User.Application.csproj" />
+    <Folder Include="Persistence\Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Mcsg.User.Domain\Mcsg.User.Domain.csproj" />
   </ItemGroup>
 

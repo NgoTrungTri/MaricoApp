@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
 
-namespace Mcsg.User.Infrastructure.Persistence;
+namespace Persistence;
 
 public partial class UserDbContext : DbContext
 {
@@ -9,8 +9,7 @@ public partial class UserDbContext : DbContext
     {
     }
 
-    public UserDbContext(DbContextOptions<UserDbContext> options)
-        : base(options)
+    public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
     {
     }
 
