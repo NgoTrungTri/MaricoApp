@@ -1,8 +1,10 @@
-﻿namespace Interfaces
+﻿using Models;
+
+namespace Interfaces
 {
     public interface IJwtService
     {
-        string GenerateAccessToken(Models.User user);
+        string GenerateAccessToken(User user);
         string GenerateRefreshToken();
     }
 }

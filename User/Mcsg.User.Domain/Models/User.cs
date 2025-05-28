@@ -9,13 +9,13 @@ public partial class User
     public int UsId { get; set; }
 
     [StringLength(500)]
-    public string? UsName { get; set; }
+    public string UsName { get; set; } = null!;
 
     [StringLength(500)]
-    public string? UsFullName { get; set; }
+    public string UsFullName { get; set; } = null!;
 
     [StringLength(500)]
-    public string? UsMail { get; set; }
+    public string UsMail { get; set; } = null!;
 
     [StringLength(500)]
     public string? UsN1 { get; set; }
@@ -28,6 +28,10 @@ public partial class User
 
     [StringLength(500)]
     public string? UsManager { get; set; }
+
+    [Column("UsSManager")]
+    [StringLength(500)]
+    public string? UsSmanager { get; set; }
 
     [StringLength(500)]
     public string? UsDirector { get; set; }
@@ -79,7 +83,7 @@ public partial class User
     [StringLength(500)]
     public string? UsN3name { get; set; }
 
-    public bool? UsIsAdmin { get; set; }
+    public bool? UsisAdmin { get; set; }
 
     [StringLength(200)]
     public string? UsJob { get; set; }
@@ -89,5 +93,16 @@ public partial class User
     [StringLength(500)]
     public string? UsDepartmentAd { get; set; }
 
-    public DateOnly UsCreateDate { get; set; }
+    public DateOnly? UsCreateDate { get; set; }
+
+    public int? CreatedBy { get; set; }
+
+    public int? UpdatedBy { get; set; }
+
+    [Column(TypeName = "datetime")]
+    public DateTime? UpdatedDate { get; set; }
+
+    [ForeignKey("UsId")]
+    [InverseProperty("Us")]
+    public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
 }
