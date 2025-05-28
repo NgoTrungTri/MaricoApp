@@ -34,10 +34,13 @@ namespace Controllers
 
         [Authorize]
         [HttpDelete("permission")]
-        public async Task<IActionResult> RemovePermissions([FromBody] PermissionCreateR request)
+        public async Task<IActionResult> RemovePermission([FromBody] PermissionDeleteR request)
         {
             var result = await _mediator.Send(request);
-            return Ok(result);
+            if (!result)
+                return NotFound("Permission not found");
+            return Ok();
         }
+
     }
 }

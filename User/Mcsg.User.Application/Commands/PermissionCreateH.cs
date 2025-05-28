@@ -1,8 +1,10 @@
 ﻿using DTO;
+using FluentValidation;
 using MediatR;
 using Models;
 using Persistence;
 using Requests;
+using Validators;
 
 public class PermissionCreateH : IRequestHandler<PermissionCreateR, PermissionCreateDTO>
 {
@@ -15,6 +17,13 @@ public class PermissionCreateH : IRequestHandler<PermissionCreateR, PermissionCr
 
     public async Task<PermissionCreateDTO> Handle(PermissionCreateR request, CancellationToken cancellationToken)
     {
+        var vr = new PermissionCreateV().Validate(request);
+        if (!vr.IsValid)
+        {
+            var errors = vr.Errors.Select(e => new { e.PropertyName, e.ErrorMessage });
+            throw new ValidationException(vr.Errors.ToString());
+        }
+
         var role = await _context.Roles.FindAsync(request.RoleId);
         if (role == null)
         {
