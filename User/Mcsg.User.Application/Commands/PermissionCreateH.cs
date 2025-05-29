@@ -8,7 +8,7 @@ using Validators;
 
 public class PermissionCreateH : IRequestHandler<PermissionCreateR, PermissionCreateDTO>
 {
-    private readonly UserDbContext _context;
+    private readonly IUserDbContext _context;
 
     public PermissionCreateH(UserDbContext context)
     {

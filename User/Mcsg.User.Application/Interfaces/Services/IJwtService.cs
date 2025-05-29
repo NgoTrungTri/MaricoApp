@@ -1,6 +1,6 @@
 ﻿using Models;
 
-namespace Interfaces
+namespace Services
 {
     public interface IJwtService
     {

@@ -1,9 +1,8 @@
 ﻿using DTO;
-using Interfaces;
+using Interfaces.Services;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Persistence;
 using Requests;
+using Services;
 using System.ComponentModel.DataAnnotations;
 using Validators;
 
@@ -11,12 +10,12 @@ namespace Commands
 {
     public class LoginH : IRequestHandler<LoginR, LoginDTO>
     {
-        private readonly UserDbContext _context;
+        private readonly IUserService _userService;
         private readonly IJwtService _jwtService;
 
-        public LoginH(UserDbContext context, IJwtService jwtService)
+        public LoginH(IUserService userService, IJwtService jwtService)
         {
-            _context = context;
+            _userService = userService;
             _jwtService = jwtService;
         }
 
@@ -26,12 +25,15 @@ namespace Commands
             if (!vr.IsValid)
             {
                 var errors = vr.Errors.Select(e => new { e.PropertyName, e.ErrorMessage });
-                throw new ValidationException(vr.Errors.ToString());
+                throw new ValidationException(string.Join("; ", errors.Select(e => $"{e.PropertyName}: {e.ErrorMessage}")));
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.UsName == request.Username && u.UsIsActive);
+            var user = await _userService.GetActiveUserByUsernameAsync(request);
+
             if (user == null || request.Password != "1")
+            {
                 throw new UnauthorizedAccessException("Invalid credentials");
+            }
 
             var accessToken = _jwtService.GenerateAccessToken(user);
             var refreshToken = _jwtService.GenerateRefreshToken();

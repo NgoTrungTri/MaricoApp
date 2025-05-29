@@ -1,8 +1,10 @@
-using Interfaces;
+using Interfaces.Repositories;
+using Interfaces.Services;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
+using Repositories;
 using Services;
 using System.Text;
 
@@ -49,6 +51,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IUserDbContext>(provider => provider.GetRequiredService<UserDbContext>());
+
+// Các DI khác
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

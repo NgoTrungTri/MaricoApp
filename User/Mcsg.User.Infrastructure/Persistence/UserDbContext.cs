@@ -3,7 +3,7 @@ using Models;
 
 namespace Persistence;
 
-public partial class UserDbContext : DbContext
+public partial class UserDbContext : DbContext, IUserDbContext
 {
     public UserDbContext()
     {
