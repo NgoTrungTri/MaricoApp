@@ -17,5 +17,20 @@ namespace Services
         {
             return _permissionRepository.CreateAsync(permission);
         }
+
+        public async Task<bool> DeletePermission(Permission permission)
+        {
+            return await _permissionRepository.DeletePermission(permission);
+        }
+
+        public Task<bool> ExistsAsync(Permission permission)
+        {
+            return _permissionRepository.ExistsAsync(permission);
+        }
+
+        public Task<Permission?> GetByIdAsync(int permissionId)
+        {
+            return _permissionRepository.GetByIdAsync(permissionId);
+        }
     }
 }

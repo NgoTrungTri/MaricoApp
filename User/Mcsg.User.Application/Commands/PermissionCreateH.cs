@@ -47,6 +47,12 @@ public class PermissionCreateH : IRequestHandler<PermissionCreateR, PermissionCr
             RoleId = request.RoleId
         };
 
+        var existPermission = await _permissionService.ExistsAsync(permission);
+        if (existPermission)
+        {
+            throw new Exception("Exist Permission!");
+        }
+
         await _permissionService.CreateAsync(permission);
 
         return new PermissionCreateDTO

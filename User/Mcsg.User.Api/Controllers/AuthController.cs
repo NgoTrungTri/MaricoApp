@@ -39,7 +39,7 @@ namespace Controllers
             var result = await _mediator.Send(request);
             if (!result)
                 return NotFound("Permission not found");
-            return Ok();
+            return NoContent();
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Interfaces.Services;
 using MediatR;
 using Persistence;
 using Requests;
@@ -6,11 +7,13 @@ using Validators;
 
 public class PermissionDeleteH : IRequestHandler<PermissionDeleteR, bool>
 {
-    private readonly UserDbContext _context;
+    private readonly IUserDbContext _context;
+    private readonly IPermissionService _permissionService;
 
-    public PermissionDeleteH(UserDbContext context)
+    public PermissionDeleteH(UserDbContext context, IPermissionService permissionService)
     {
         _context = context;
+        _permissionService = permissionService;
     }
 
     public async Task<bool> Handle(PermissionDeleteR request, CancellationToken cancellationToken)
@@ -21,12 +24,14 @@ public class PermissionDeleteH : IRequestHandler<PermissionDeleteR, bool>
             var errors = vr.Errors.Select(e => new { e.PropertyName, e.ErrorMessage });
             throw new ValidationException(vr.Errors.ToString());
         }
-        var permission = await _context.Permissions.FindAsync(request.PermissionId);
+
+        var permission = await _permissionService.GetByIdAsync(request.PermissionId);
         if (permission == null)
             return false;
 
-        _context.Permissions.Remove(permission);
-        await _context.SaveChangesAsync(cancellationToken);
+        var hasDelete = await _permissionService.DeletePermission(permission);
+        if (!hasDelete)
+            return false;
 
         return true;
     }
