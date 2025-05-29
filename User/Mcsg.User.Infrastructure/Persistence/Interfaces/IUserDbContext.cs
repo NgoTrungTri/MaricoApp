@@ -9,6 +9,7 @@ public interface IUserDbContext
     DbSet<Role> Roles { get; }
     DbSet<Test> Tests { get; }
     DbSet<User> Users { get; }
+    DbSet<UserRole> UserRoles { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

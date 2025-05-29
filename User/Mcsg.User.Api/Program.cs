@@ -58,6 +58,12 @@ builder.Services.AddScoped<IUserDbContext>(provider => provider.GetRequiredServi
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+
+builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
+builder.Services.AddScoped<IPermissionService, PermissionService>();
+
 var app = builder.Build();
 
 app.UseAuthentication();

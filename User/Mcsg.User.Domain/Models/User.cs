@@ -102,7 +102,6 @@ public partial class User
     [Column(TypeName = "datetime")]
     public DateTime? UpdatedDate { get; set; }
 
-    [ForeignKey("UsId")]
-    [InverseProperty("Us")]
-    public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
+    [InverseProperty("User")]
+    public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
 }
